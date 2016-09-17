@@ -1,0 +1,14 @@
+{
+  "name": "server",
+  "version": "0.1.0",
+  "main": "serverExpress.js",
+  "dependencies": {
+    "express": "^4.13.4",
+    "cheerio": "^0.20.0",
+	"request": "^2.73.0",
+    "basic-auth": "^1.0.4"
+  },
+  "engines": {
+    "npm": ">= 1.0.0"
+  }
+}
