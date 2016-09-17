@@ -3,8 +3,9 @@ angular.module('bike', [])
         var self = this;
         self.citySelect = null;
         self.code = -1;
-        self.cityList = [{"name": ""}, {"name": "Venezia"}, {"name": "Grisignano"}, {"name": "Trento"}];
-        
+        $http.get('/cityList').then(function(res){
+			self.cityList = res.data;
+		}, function(err){ console.error('cityList does not responds');});
 
         self.submit = function(){ 
             console.log(self.citySelect);

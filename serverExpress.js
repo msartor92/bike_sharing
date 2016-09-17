@@ -41,6 +41,7 @@ var auth = function (req, res, next) {
 app.post('/parseStation', auth, resolver.parseStation);
 app.get('/cityName',  auth, resolver.cityName);
 app.get('/cityCode', auth, resolver.cityCode);
+app.get('/cityList', auth, resolver.cityList);
 app.get('/getData', resolver.getData);
 
 /* app.get('/getList', function(req, res){

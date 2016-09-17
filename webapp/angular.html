@@ -12,7 +12,7 @@
         <form ng-submit="td.submit()" name="codeForm">
             <!--<input type="number" min="0" ng-model="td.code" name="code" class="code" placeholder="Enter your city" required />-->
             <select ng-model="td.citySelect"
-                    ng-options="row.name as row.name for row in td.cityList"></select>
+                    ng-options="row as row for row in td.cityList"></select>
             <input type="submit" value="Submit" ng-disabled="codeForm.$invalid" />
         </form>
         <div ng-show="td.citySelect" class="titlemargin">

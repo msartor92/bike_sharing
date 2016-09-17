@@ -3,10 +3,12 @@ var parser = require('./parser'),
 	logReq = require('./logger').req,
 	cityData = require('../data/citycode'),
 	city2code = new Object(),
-	code2city = new Object();
+	code2city = new Object(),
+	cities = new Array();
 
 /**  Module Init  **/	
 cityData.forEach(function(e){
+	cities.push(e.city);
 	city2code[e.city] = e.value;
 	code2city[e.value] = e.city;
 });
@@ -56,6 +58,13 @@ module.exports = {
 			logReq.error('API: cityCode \t', name, ',\tvalue not available');
 			res.sendStatus(204);
 		}
+	},
+	
+	cityList: function(req, res) {
+		if(cities.length){
+			res.status(200);
+			res.send(cities);
+		} else res.sendStatus(503);
 	},
 	
 	getData: function(req, res){
