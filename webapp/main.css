@@ -1,0 +1,33 @@
+body{
+    text-align: center;
+    background-color: #ddd;
+	font-size:  x-large;
+	font-family: arial,sans-serif;
+}
+table{
+	width: 100%;
+}
+table, td, th{
+    border-collapse: collapse;
+    border: 1px solid #000;
+    margin:	auto;
+}
+input,select{
+	font-size: x-large;
+}
+h3{
+	margin: 10px;
+	display: inline;
+}
+.titlemargin{
+	margin: 30px;
+}
+tr:nth-child(even) {
+    background-color: #b7d2f3;
+}
+.code.ng-invalid{
+    border: 3px solid #f51010;
+}
+.code.ng-valid{
+    border: 3px solid #4ee61c;
+}

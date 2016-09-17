@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>toBike city stations</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular.js"></script>
+    <link href='main.css' rel='stylesheet' type='text/css'>
+    <script src="main.js"></script>
+</head>
+<body ng-app="bike">
+    <div ng-controller="tableData as td">
+        <p>Select a city from the form</p>
+        <form ng-submit="td.submit()" name="codeForm">
+            <!--<input type="number" min="0" ng-model="td.code" name="code" class="code" placeholder="Enter your city" required />-->
+            <select ng-model="td.citySelect"
+                    ng-options="row.name as row.name for row in td.cityList"></select>
+            <input type="submit" value="Submit" ng-disabled="codeForm.$invalid" />
+        </form>
+        <div ng-show="td.citySelect" class="titlemargin">
+            <h3>City name: {{td.citySelect}}</h3>
+            <h3>City code: {{td.code}}</h3>
+        </div>
+        <div ng-show="td.code != -1">
+            <table>
+                <tr><th>Name</th><th>Location</th><th>Available bike</th></tr>
+                <tr ng-repeat="row in td.data | orderBy:'+name'">
+                    <td>{{row.name}}</td>
+                    <td>{{row.location}}</td>
+                    <td>{{row.bike}}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+</body>
+</html>
