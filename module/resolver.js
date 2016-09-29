@@ -61,9 +61,9 @@ module.exports = {
 	},
 	
 	cityList: function(req, res) {
-		if(cities.length){
+		if(cityData.length){
 			res.status(200);
-			res.send(cities);
+			res.send(cityData);
 		} else res.sendStatus(503);
 	},
 	

@@ -12,14 +12,13 @@
         <form ng-submit="td.submit()" name="codeForm">
             <!--<input type="number" min="0" ng-model="td.code" name="code" class="code" placeholder="Enter your city" required />-->
             <select ng-model="td.citySelect"
-                    ng-options="row as row for row in td.cityList"></select>
+                    ng-options="row.value as row.city for row in td.cityList | orderBy: '-city'"></select>
             <input type="submit" value="Submit" ng-disabled="codeForm.$invalid" />
         </form>
         <div ng-show="td.citySelect" class="titlemargin">
-            <h3>City name: {{td.citySelect}}</h3>
-            <h3>City code: {{td.code}}</h3>
+            <h3>City code: {{td.citySelect}}</h3>
         </div>
-        <div ng-show="td.code != -1">
+        <div ng-show="td.citySelect != -1">
             <table>
                 <tr><th>Name</th><th>Location</th><th>Available bike</th></tr>
                 <tr ng-repeat="row in td.data | orderBy:'+name'">
