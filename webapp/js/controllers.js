@@ -1,14 +1,14 @@
-angular.module('bike', [])
-    .controller('tableData', ['$http', function($http){
+angular.module('bike').controller('tableData', ['NetworkSvc', function(NetworkSvc){
         var self = this;
         self.citySelect = -1;
-        $http.get('/cityList').then(function(res){
+       
+        NetworkSvc.cityList().then(function(res){
 			self.cityList = res.data;
 		}, function(err){ console.error('cityList does not responds');});
 
         self.submit = function(){ 
-            console.log(self.citySelect);
-			$http.get('/getData?code='+self.citySelect).then(function(res) {
+
+			NetworkSvc.cityData(self.citySelect).then(function(res) {
 				self.data = res.data;
 			}, function(err){ console.error('getData does not responds');});                
         };

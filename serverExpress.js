@@ -52,8 +52,8 @@ app.get('/getData', resolver.getData);
 
 /** WEBAPP */
 app.use('/index.html', express.static('./webapp/angular.html'));
-app.use('/main.css', express.static('./webapp/main.css'));
-app.use('/main.js', express.static('./webapp/main.js'));
+app.use('/css/', express.static('./webapp/css/'));
+app.use('/js/', express.static('./webapp/js/'));
 
 app.get('/', function (req, res) {
   res.send('Hello World, I\'m alive!');
