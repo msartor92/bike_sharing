@@ -1,3 +1,5 @@
 /*
 	This file will contain authentication log
+	Format:
+	YYYY-MM-DD HH:MM:SS 'INFO' username 'login!'
 */

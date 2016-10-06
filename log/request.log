@@ -1,3 +1,5 @@
 /*
 	This file will contain API request log
+	Format:
+	YYYY-MM-DD HH:MM:SS 'INFO	API:' api_name user_agent
 */
