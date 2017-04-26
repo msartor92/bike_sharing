@@ -39,16 +39,10 @@ var auth = function (req, res, next) {
 
 /** API ROUTING **/
 app.post('/parseStation', auth, resolver.parseStation);
-app.get('/cityName',  auth, resolver.cityName);
+app.get('/cityName', auth, resolver.cityName);
 app.get('/cityCode', auth, resolver.cityCode);
 app.get('/cityList', auth, resolver.cityList);
 app.get('/getData', resolver.getData);
-
-/* app.get('/getList', function(req, res){
-	res.header("Access-Control-Allow-Origin", "*");
-	res.header("Access-Control-Allow-Headers", "X-Requested-With");
-	res.sendFile(path.join(__dirname, '/getList.html'));
-}); */
 
 /** WEBAPP */
 app.use('/index.html', express.static('./webapp/angular.html'));
