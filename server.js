@@ -45,10 +45,10 @@ app.get('/cityList', auth, resolver.cityList);
 app.get('/getData', resolver.getData);
 
 /** WEBAPP */
-app.use('/index.html', express.static('./webapp/index.html'));
-app.use('/media/', express.static('./webapp/media/'));
-app.use('/css/', express.static('./webapp/css/'));
-app.use('/js/', express.static('./webapp/js/'));
+app.use('/index.html', express.static('./public/index.html'));
+app.use('/media/', express.static('./public/media/'));
+app.use('/css/', express.static('./public/css/'));
+app.use('/js/', express.static('./public/js/'));
 
 app.get('/', function (req, res) {
   res.send('Hello World, I\'m alive!');
