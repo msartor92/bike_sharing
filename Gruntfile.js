@@ -1,49 +1,25 @@
 module.exports = function (grunt) {
+    const configuration = require('./configuration.json');
+
+    //load support modules
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-copy');
+    grunt.loadNpmTasks('grunt-contrib-cssmin');
     
-    grunt.initConfig({
-        concat: {
-            dist: {
-            src: ['./webapp/js/main.js', './webapp/js/services.js', './webapp/js/controllers.js'],
-            dest: './public/js/common.js',
-            }
-        },
-        uglify: {
-            options: {
-                mangle: false
-            },
-            my_target: {
-                files: {
-                    "./public/js/common.js": ["./public/js/common.js"]
-                }
-            }
-        },
-        copy: {
-            main: {
-                files: [
-                    {expand: true, filter: 'isFile', cwd: './webapp', dest: './public', src: ['index.html']},
-                    {expand: true, filter: 'isFile', cwd: './webapp', dest: './public', src: ['css/main.css']},
-                    {expand: true, filter: 'isFile', cwd: './webapp/css/glyphicons/png', dest: './public/media', src: [
-                        'glyphicons-307-bicycle.png', 
-                        'glyphicons-650-bike-park.png',
-                        'glyphicons-200-ban-circle.png',
-                        'glyphicons-503-map.png'
-                        ]
-                    }
-                ]
-            },
-        }
-    });
+    //load configuration
+    grunt.initConfig(configuration);
 
     grunt.registerTask ('build', function () {
         grunt.task.run('concat');
         grunt.task.run('uglify');
         grunt.task.run('copy');
+        grunt.task.run('cssmin');
+
+        grunt.log.ok("toBike build completed!");
     });
 
     grunt.registerTask('help', function () {
-        console.log("Ask to developer");
+        grunt.log.ok("To use front-end, run grunt build which create contat and minified files");
     });
 };
