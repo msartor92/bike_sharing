@@ -14,6 +14,9 @@ table, td, th{
 thead{
     border: 1px solid #000;
 }
+tbody{
+    border-bottom: 1px solid #000;
+}
 td, th{
     border-left: 1px solid #000;
     border-right: 1px solid #000;
