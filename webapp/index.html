@@ -23,22 +23,26 @@
             <span class="glyphicons glyphicons-bicycle"></span>
         <div ng-show="td.citySelect != -1">
             <table>
-                <tr>
-                    <th>Name</th>
-                    <th><img src="/media/glyphicons-307-bicycle.png"/></th>
-                    <th><img src="/media/glyphicons-650-bike-park.png"/></th>
-                    <th><img src="/media/glyphicons-200-ban-circle.png"/></th>
-                    <th>Map</th>
-                    <th>Location</th>
-                </tr>
-                <tr ng-repeat="row in td.data | orderBy:'+name'">
-                    <td>{{row.name}}</td>
-                    <td class="green">{{row.bikes}}</td>
-                    <td class="blue">{{row.empty}}</td>
-                    <td class="red">{{row.blocked}}</td>
-                    <td><a href="/"><img src="/media/glyphicons-503-map.png" /></a></td>
-                    <td>{{row.location}}</td>
-                </tr>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th><img src="/media/glyphicons-307-bicycle.png"/></th>
+                        <th><img src="/media/glyphicons-650-bike-park.png"/></th>
+                        <th><img src="/media/glyphicons-200-ban-circle.png"/></th>
+                        <th>Map</th>
+                        <th>Location</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="row in td.data | orderBy:'+name'">
+                        <td>{{row.name}}</td>
+                        <td class="green">{{row.bikes}}</td>
+                        <td class="blue">{{row.empty}}</td>
+                        <td class="red">{{row.blocked}}</td>
+                        <td><a href="/"><img src="/media/glyphicons-503-map.png" /></a></td>
+                        <td>{{row.location}}</td>
+                    </tr>
+                </tbody>
             </table>
         </div>
     </div>

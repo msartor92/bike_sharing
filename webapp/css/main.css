@@ -9,8 +9,14 @@ table{
 }
 table, td, th{
     border-collapse: collapse;
-    border: 1px solid #000;
     margin:	auto;
+}
+thead{
+    border: 1px solid #000;
+}
+td, th{
+    border-left: 1px solid #000;
+    border-right: 1px solid #000;
 }
 tr td:last-child{
     width:1%;
@@ -26,7 +32,7 @@ h3{
 .titlemargin{
 	margin: 30px;
 }
-tr:nth-child(even) {
+tbody tr:nth-child(odd) {
     background-color: #afafaf;
 }
 .code.ng-invalid{
