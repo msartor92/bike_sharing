@@ -45,7 +45,8 @@ app.get('/cityList', auth, resolver.cityList);
 app.get('/getData', resolver.getData);
 
 /** WEBAPP */
-app.use('/index.html', express.static('./webapp/angular.html'));
+app.use('/index.html', express.static('./webapp/index.html'));
+app.use('/media/', express.static('./webapp/media/'));
 app.use('/css/', express.static('./webapp/css/'));
 app.use('/js/', express.static('./webapp/js/'));
 

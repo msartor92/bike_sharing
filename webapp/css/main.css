@@ -12,6 +12,10 @@ table, td, th{
     border: 1px solid #000;
     margin:	auto;
 }
+tr td:last-child{
+    width:1%;
+    white-space:nowrap;
+}
 input,select{
 	font-size: x-large;
 }
@@ -23,11 +27,20 @@ h3{
 	margin: 30px;
 }
 tr:nth-child(even) {
-    background-color: #b7d2f3;
+    background-color: #afafaf;
 }
 .code.ng-invalid{
     border: 3px solid #f51010;
 }
 .code.ng-valid{
     border: 3px solid #4ee61c;
+}
+.green {
+    color: green;
+}
+.blue {
+    color: blue;
+}
+.red {
+    color: red;
 }
