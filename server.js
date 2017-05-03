@@ -1,4 +1,3 @@
-var express = require('express'),
 var compression = require('compression'),
 	express = require('express'),
 	app = express(),
