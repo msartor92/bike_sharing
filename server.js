@@ -1,4 +1,6 @@
 var express = require('express'),
+var compression = require('compression'),
+	express = require('express'),
 	app = express(),
 	path = require('path'),
 	basicAuth = require('basic-auth'),
@@ -45,6 +47,7 @@ app.get('/cityList', auth, resolver.cityList);
 app.get('/getData', resolver.getData);
 
 /** WEBAPP */
+app.use(compression());
 app.use('/index.html', express.static('./public/index.html'));
 app.use('/media/', express.static('./public/media/'));
 app.use('/css/', express.static('./public/css/'));
