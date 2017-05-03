@@ -1,7 +1,10 @@
 {
     "concat": {
         "dist": {
-            "src": ["./webapp/js/main.js", "./webapp/js/services.js", "./webapp/js/controllers.js"],
+            "src": ["./node_modules/angular-loading-bar/build/loading-bar.min.js",
+                    "./webapp/js/main.js",
+                    "./webapp/js/services.js",
+                    "./webapp/js/controllers.js"],
             "dest": "./public/js/common.js"
         }
     },
@@ -19,6 +22,7 @@
         "main": {
             "files": [
                 {"expand": true, "filter": "isFile", "cwd": "./webapp", "dest": "./public", "src": ["index.html"]},
+                {"expand": true, "filter": "isFile", "cwd": "./node_modules/angular-loading-bar/build/", "dest": "./public/css", "src": ["loading-bar.min.css"]},
                 {"expand": true, "filter": "isFile", "cwd": "./webapp/css/glyphicons/png", "dest": "./public/media", "src": [
                     "glyphicons-307-bicycle.png", 
                     "glyphicons-650-bike-park.png",

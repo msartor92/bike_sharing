@@ -1,1 +1,1 @@
-angular.module('bike', []);
+angular.module('bike', ['angular-loading-bar']);

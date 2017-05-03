@@ -1,7 +1,11 @@
-angular.module('bike').controller('tableData', ['NetworkSvc', function(NetworkSvc){
+angular.module('bike')
+.config(['cfpLoadingBarProvider', function(cfpLoadingBarProvider) {//angular-loading-bar config
+        cfpLoadingBarProvider.includeSpinner = true;
+}])
+.controller('tableData', ['NetworkSvc', function(NetworkSvc){
         var self = this;
         self.citySelect = -1;
-       
+
         NetworkSvc.cityList().then(function(res){
                 self.cityList = res.data;
         }, function(err) { console.error('cityList does not responds')});
@@ -19,5 +23,5 @@ angular.module('bike').controller('tableData', ['NetworkSvc', function(NetworkSv
                         
                         self.data = data;
                 }, function(err){ console.error('getData does not responds');});                
-        };
+};
 }]);
