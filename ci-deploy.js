@@ -1,7 +1,7 @@
 var http = require( "http" ),
-    PORT = 8000,
+    PORT = 443,
     createHandler = require('github-webhook-handler'),
-    handler = createHandler({ path: '/webhook', secret: 'myhashsecret' }),
+    handler = createHandler({ path: '/webhook', secret: 'camionsoleolio' }),
     sh = require('shelljs')
     cmds = ["git pull",
             "pm2 stop server.js",
@@ -42,7 +42,10 @@ function webhookCreate(event) {
 }
 
 //SERVICE
-http.createServer(handler(req, res, requestError).listen(PORT);
+http.createServer(function(req, res){
+	console.log('request reached');
+	handler(req, res, requestError);
+}).listen(PORT);
 
 handler.on('error', webhookError);
 handler.on('create', webhookCreate);
