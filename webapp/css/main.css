@@ -53,3 +53,12 @@ tbody tr:nth-child(odd) {
 .red {
     color: red;
 }
+
+#loading-bar-spinner .spinner-icon {
+	width: 20px;
+	height: 20px;
+}
+
+#loading-bar .bar{
+	height: 3px;
+}
