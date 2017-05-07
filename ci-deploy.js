@@ -4,11 +4,11 @@ var http = require( "http" ),
     handler = createHandler({ path: '/webhook', secret: 'camionsoleolio' }),
     sh = require('shelljs')
     cmds = ["git pull",
-            "pm2 stop server.js",
-            "npm install",
+            /*"pm2 stop server",*/
+            /*"npm install",*/
             "npm run build",
-            "pm2 start server.js"];
-            
+            "pm2 restart 0"];
+
 var debug = true;
 
 //HANDLER
@@ -17,11 +17,9 @@ function webhookError(err) {
 }
 
 function webhookCreate(event) {
-    console.log('Received a create event for %s to %s',
-    event.payload.repository.name,
-    event.payload.ref);//THEIR
-    
-    !debug || console.log( "New tag: ", data);
+    !debug || console.log('Received a create event for %s to %s',
+   			 event.payload.repository.name,
+  			 event.payload.ref);
     !debug || console.log('CWD:', process.cwd());
 
     for(var cmd of cmds) {
