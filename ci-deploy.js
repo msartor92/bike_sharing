@@ -12,12 +12,6 @@ var http = require( "http" ),
 var debug = true;
 
 //HANDLER
-function requestError(err){
-    res.statusCode = 500;
-    res.end('Forbidden access');
-    console.error(err);
-};
-
 function webhookError(err) {
   console.error('Error:', err.message);
 }
@@ -44,7 +38,11 @@ function webhookCreate(event) {
 //SERVICE
 http.createServer(function(req, res){
 	console.log('request reached');
-	handler(req, res, requestError);
+	handler(req, res, function requestError(err){
+			    res.statusCode = 500;
+			    res.end('Forbidden access');
+			    console.error(err);
+		  	});
 }).listen(PORT);
 
 handler.on('error', webhookError);
