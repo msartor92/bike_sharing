@@ -1,13 +1,13 @@
 var http = require( "http" ),
-    PORT = 443,
+    PORT = 8000,
     createHandler = require('github-webhook-handler'),
     handler = createHandler({ path: '/webhook', secret: 'camionsoleolio' }),
     sh = require('shelljs')
     cmds = ["git pull",
-            /*"pm2 stop server",*/
-            /*"npm install",*/
+            "pm2 stop server.js",
+            "npm install",
             "npm run build",
-            "pm2 restart 0"];
+            "pm2 restart server.js"];
 
 var debug = true;
 
