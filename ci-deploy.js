@@ -1,13 +1,16 @@
 var http = require( "http" ),
     PORT = 8000,
     createHandler = require('github-webhook-handler'),
-    handler = createHandler({ path: '/webhook', secret: 'camionsoleolio' }),
+    handler = createHandler({ path: '/webhook', secret: 'your_passphrase' }),
     sh = require('shelljs')
-    cmds = ["git pull",
+    cmds = ["mkdir -p /tmp/fallback/",
+            "cp -R * /tmp/fallback/",
+            "git pull",
             "pm2 stop server.js",
             "npm install",
             "npm run build",
-            "pm2 restart server.js"];
+            "pm2 restart server.js",
+            "rm -R /tmp/fallback/*"];
 
 var debug = true;
 
@@ -35,7 +38,6 @@ function webhookCreate(event) {
 
 //SERVICE
 http.createServer(function(req, res){
-	console.log('request reached');
 	handler(req, res, function requestError(err){
 			    res.statusCode = 500;
 			    res.end('Forbidden access');
