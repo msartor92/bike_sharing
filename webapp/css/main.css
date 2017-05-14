@@ -9,7 +9,8 @@ table{
 }
 table, td, th{
     border-collapse: collapse;
-    margin:	auto;
+    margin: auto;
+    text-align: center;
 }
 thead{
     border: 1px solid #000;
