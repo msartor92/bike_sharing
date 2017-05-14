@@ -1,1 +1,1 @@
-angular.module('bike', ['angular-loading-bar']);
+angular.module('bike', ['angular-loading-bar', 'ui.bootstrap', 'ngMap']);
