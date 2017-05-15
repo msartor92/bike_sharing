@@ -4,13 +4,13 @@ body{
     font-size:  x-large;
     font-family: arial,sans-serif;
 }
-table{
-    width: 100%;
-}
 table, td, th{
     border-collapse: collapse;
-    margin: auto;
+    margin: 0 auto;
     text-align: center;
+}
+.tcont{
+    padding: 20px;
 }
 thead{
     border: 1px solid #000;
@@ -19,6 +19,7 @@ tbody{
     border-bottom: 1px solid #000;
 }
 td, th{
+    padding: 0 5px;
     border-left: 1px solid #000;
     border-right: 1px solid #000;
 }
