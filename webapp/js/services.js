@@ -16,23 +16,28 @@ angular.module('bike')
     return {
         addrToCoord: function(city, street){
             var p = encodeURI(city + ' ' + street),
-                uri = 'https://maps.googleapis.com/maps/api/geocode/json?address=' + p + '&key=X';
+                uri = 'https://maps.googleapis.com/maps/api/geocode/json?address=' + p + '&key=AIzaSyDrfAYc_5wOvzW84DXIfIQv7ui74o7lZyo';
             
-            return {status: "ok", result: {lat: 42.10, lng: 11.79}};
-            /*return $http.get(uri, {
-                transformResponse: function cleanRes(data, headers){
-                    var res = JSON.parse(data);
+            //  return {status: "ok", result: {lat: 42.10, lng: 11.79}};
+            return $http.get(uri, {
+                transformResponse: function(data, headers) {
+                    var res = JSON.parse(data),
+                        data = res.results,
+                        obj = {};
                     
-                    if(res.status != 'OK')//reject();//???
-                        return {status: "failed", result: []};
-                    else {
-                        var data = res.results,
-                            geom = data.length ? data[0].geometry : [];
-                        
-                        return {status: "ok", result: geom};
+                    if(res.status != 'OK' && !data.length){//reject();
+                        obj.status = "failed";
+                        obj.result = {};
+                    } else {
+                        obj.result = {
+                            lat: data[0].geometry.location.lat, 
+                            lng: data[0].geometry.location.lng
+                        };
+                        obj.status = "ok";
                     }
+                    return obj;
                 }
-            });*/
+            });
         }
     };
 }])
@@ -55,6 +60,7 @@ angular.module('bike')
             }
         })
         .result.then(function (selectedItem) {}, function () {
+            delete modalInstance;
             //console.log('Modal dismissed at: ' + new Date());
         });
     };

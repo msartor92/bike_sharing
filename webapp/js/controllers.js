@@ -41,11 +41,15 @@ angular.module('bike')
 
     self.parseData = function(data){
         //improve after complete service
-        var ll = GeoCoder.addrToCoord(data.city, data.street);
-        self.lat = ll.result.lat;
-        self.long = ll.result.lng;
-        
-        ModalProvider.openMapModal(self.lat, self.long, self.zoom);
+        GeoCoder.addrToCoord(data.city, data.street).then(function(data) {
+            var d = data.data;
+            if(d.status == 'ok'){
+                self.lat = d.result.lat;
+                self.long = d.result.lng;
+                self.zoom = 16;
+            }
+            ModalProvider.openMapModal(self.lat, self.long, self.zoom); 
+        });
     };
   
     document.getElementById("bikes").addEventListener('openMap', function(evt){
