@@ -10,7 +10,7 @@ var compression = require('compression'),
 	
 /** AUTHENTICATION **/
 userData.forEach(function(e){
-	users[e.user] = e.psw;
+	users[e.usr] = e.psw;
 });
 
 var auth = function (req, res, next) {
