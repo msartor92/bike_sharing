@@ -70,7 +70,7 @@ module.exports = {
 	getData: function(req, res){
 		var code = req.query.code,
 			proxy = 'http://anonymouse.org/cgi-bin/anon-www.cgi/',
-			stazioni = 'http://bicincitta.tobike.it/frmLeStazioni.aspx?',
+			stazioni = 'http://www.bicincitta.com/frmLeStazioniComune.aspx?',
 			ID = 'ID=' + code;
 
 		if(/[0-9]$/.test(code)){
